@@ -1,8 +1,10 @@
-package ru.gitverse.parking.dto;
+package ru.gitverse.parking.model.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
 
 /**
  * @author Maxim Khamzin
@@ -11,8 +13,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ParkingReport {
-    private int enteredCount;
-    private int exitedCount;
-    private double avgParkingMinutes;
+public class ParkingResponse {
+    private LocalDateTime dateTime;
 }

@@ -1,4 +1,4 @@
-package ru.gitverse.parking.entity;
+package ru.gitverse.parking.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,6 +13,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.gitverse.parking.model.enums.CarType;
+import ru.gitverse.parking.model.enums.ParkingEventType;
 
 import java.time.LocalDateTime;
 
@@ -27,7 +29,7 @@ import java.time.LocalDateTime;
 @Builder
 @Entity
 @Table(name = "parking_log")
-public class ParkingLog {
+public class ParkingLog {  // BaseEntity с @MappedSuperclass намеренно не создаю для этого тестового
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

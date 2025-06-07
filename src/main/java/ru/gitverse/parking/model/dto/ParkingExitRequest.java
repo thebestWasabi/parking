@@ -1,4 +1,4 @@
-package ru.gitverse.parking.dto;
+package ru.gitverse.parking.model.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;

@@ -1,12 +1,11 @@
 package ru.gitverse.parking.service;
 
 import org.springframework.stereotype.Repository;
-import ru.gitverse.parking.dto.ParkingEntryRequest;
-import ru.gitverse.parking.dto.ParkingExitRequest;
-import ru.gitverse.parking.dto.ParkingReport;
-import ru.gitverse.parking.dto.ParkingResponse;
-
-import java.time.LocalDateTime;
+import ru.gitverse.parking.model.dto.ParkingEntryRequest;
+import ru.gitverse.parking.model.dto.ParkingExitRequest;
+import ru.gitverse.parking.model.dto.ParkingReport;
+import ru.gitverse.parking.model.dto.ParkingResponse;
+import ru.gitverse.parking.model.dto.ReportDto;
 
 /**
  * @author Maxim Khamzin
@@ -18,5 +17,5 @@ public interface ParkingService {
 
     ParkingResponse exit(ParkingExitRequest request);
 
-    ParkingReport generateReport(LocalDateTime start, LocalDateTime end);
+    ParkingReport generateReport(ReportDto reportDto);
 }

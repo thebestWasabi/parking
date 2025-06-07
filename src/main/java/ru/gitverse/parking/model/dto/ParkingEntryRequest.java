@@ -1,11 +1,11 @@
-package ru.gitverse.parking.dto;
+package ru.gitverse.parking.model.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.gitverse.parking.entity.CarType;
+import ru.gitverse.parking.model.enums.CarType;
 
 /**
  * @author Maxim Khamzin

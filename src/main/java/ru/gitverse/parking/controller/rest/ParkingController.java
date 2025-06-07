@@ -1,4 +1,4 @@
-package ru.gitverse.parking.controller;
+package ru.gitverse.parking.controller.rest;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ru.gitverse.parking.dto.ParkingEntryRequest;
-import ru.gitverse.parking.dto.ParkingExitRequest;
-import ru.gitverse.parking.dto.ParkingReport;
-import ru.gitverse.parking.dto.ParkingResponse;
+import ru.gitverse.parking.model.dto.ParkingEntryRequest;
+import ru.gitverse.parking.model.dto.ParkingExitRequest;
+import ru.gitverse.parking.model.dto.ParkingReport;
+import ru.gitverse.parking.model.dto.ParkingResponse;
+import ru.gitverse.parking.model.dto.ReportDto;
 import ru.gitverse.parking.service.ParkingService;
 
 import java.time.LocalDateTime;
@@ -43,6 +44,8 @@ public class ParkingController {
     @GetMapping("/report")
     public ResponseEntity<ParkingReport> getReport(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) final LocalDateTime start,
                                                    @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) final LocalDateTime end) {
-        return ResponseEntity.ok(parkingService.generateReport(start, end));
+        // Упаковываю в объект, перед тем как прокидывать в сервис, что бы можно было расширять
+        final ReportDto dto = new ReportDto(start, end);
+        return ResponseEntity.ok(parkingService.generateReport(dto));
     }
 }
