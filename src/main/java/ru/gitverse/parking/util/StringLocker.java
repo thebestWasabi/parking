@@ -115,4 +115,16 @@ public class StringLocker {
             unlock(key);
         }
     }
+
+    public void executeLocked(String key, Runnable task) {
+        boolean locked = tryLock(key);
+        if (!locked) return;
+
+        try {
+            task.run();
+        }
+        finally {
+            unlock(key);
+        }
+    }
 }
